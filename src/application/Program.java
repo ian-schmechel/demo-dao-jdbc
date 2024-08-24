@@ -73,6 +73,12 @@ public class Program {
 			System.out.println(obj);
 		}
 		
+		System.out.println("\n=== TEST 11: department delete ===");
+		System.out.println("Enter id for delete test: ");
+		id = sc.nextInt();
+		departmentDao.deleteById(id);
+		System.out.println("Delete completed!");
+		
 		sc.close();
 	}
 
