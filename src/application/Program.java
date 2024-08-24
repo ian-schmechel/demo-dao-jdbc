@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -51,6 +52,16 @@ public class Program {
 		int id = sc.nextInt();
 		sellerDao.deleteById(id);
 		System.out.println("Delete completed!");
+		
+		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+		
+		System.out.println("\n=== TEST 7: department insert ===");
+		Department newDep = new Department(null, "bow");
+		departmentDao.insert(newDep);
+		System.out.println("Inserted!");
+		
+		System.out.println("\n=== TEST 8: department update ===");
+		newDep = departmentDao.findById(2);
 		
 		sc.close();
 	}
